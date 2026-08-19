@@ -39,12 +39,16 @@
            margin-left: auto; 
            margin-right: auto; 
           }
+  section 
+  { 
+    display: none; 
+  }
 </style>
 </head> 
   <body> 
     <h1>The Reed Bends</h1> 
     <nav> 
-      <a href="#about">About</a> | <a href="#blogs">Blogs</a> | <a href="#events">Events</a> 
+      <a onclick="showSection('about')">About</a> | <a onclick="showSection('blogs')">Blogs</a> | <a onclick="showSection('events')">Events</a> 
     </nav>
     <p>A journal on Movement.</p> 
     <section id="about"> 
@@ -56,4 +60,14 @@ This is where I write about yoga and movement. This isn't a place for perfect po
     <section id="events"> <h2>Events</h2> <p>Details on upcoming yoga or meditation sessions will go here.</p> 
     </section>
     <a href="https://instagram.com/thereedbends" class="btn">Follow on Instagram</a>
-  </body> </html>
+    <script> 
+      function showSection(id) 
+      { 
+        document.getElementById('about').style.display = 'none'; 
+        document.getElementById('blogs').style.display = 'none'; 
+        document.getElementById('events').style.display = 'none'; 
+        document.getElementById(id).style.display = 'block'; 
+      } 
+    </script> 
+  </body> 
+</html>
