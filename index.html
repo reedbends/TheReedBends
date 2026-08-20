@@ -181,7 +181,7 @@
 
   /* ---------- SECTION HEADINGS ---------- */
   section{ padding: 80px 0; }
-  section#journal, section.about{ display:none; }
+  section#journal, section#blogs, section.about{ display:none; }
   .section-head{
     display:flex; align-items:baseline; justify-content:space-between;
     margin-bottom: 40px;
@@ -319,6 +319,7 @@
     </a>
     <div class="navlinks">
       <a href="#journal" onclick="revealSection('journal'); return false;">Journal</a>
+      <a href="#blogs" onclick="revealSection('blogs'); return false;">Blogs</a>
       <a href="#about" onclick="revealSection('about'); return false;">About</a>
       <a href="#connect">Connect</a>
       <a class="ig" href="https://instagram.com/thereedbends" target="_blank" rel="noopener">Instagram ↗</a>
@@ -332,7 +333,8 @@
       <h1 class="title">Bend.<br>Don't <em>break</em>.</h1>
       <p class="sub">The sessions, the small shifts, and everything that doesn't fit in a caption.</p>
       <div class="hero-actions">
-        <a href="#journal" class="btn btn-primary" onclick="revealSection('journal'); return false;">Read the journal</a>
+        <a href="#journal" class="btn btn-primary" onclick="revealSection('journal'); return false;">Journal</a>
+        <a href="#blogs" class="btn btn-primary" onclick="revealSection('blogs'); return false;">Blogs</a>
         <a href="#about" class="btn btn-ghost" onclick="revealSection('about'); return false;">About this space</a>
       </div>
     </div>
@@ -390,6 +392,12 @@
   </div>
 </section>
 <section class="about" id="about">
+  <section id="blogs">
+  <div class="wrap">
+    <h2>Blogs</h2>
+    <p>Edit me — this is where your longer-form writing lives. First post coming soon.</p>
+  </div>
+</section>
   <div class="wrap">
     <div class="about-figure">
       <div class="reed-stage" aria-hidden="true">
@@ -422,6 +430,7 @@
 <script>
   function revealSection(id) {
     document.getElementById('journal').style.display = 'none';
+    document.getElementById('blogs').style.display = 'none'; 
     document.getElementById('about').style.display = 'none';
     const target = document.getElementById(id);
     target.style.display = 'block';
