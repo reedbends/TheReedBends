@@ -149,7 +149,7 @@
     .reed{ animation: none; }
   }
   section{ padding: 80px 0; }
-  section#journal, section#blogs, section.about{ display:none; }
+ .page{ display:none; }
   .section-head{
     display:flex; align-items:baseline; justify-content:space-between;
     margin-bottom: 40px;
@@ -301,7 +301,7 @@
     </div>
   </div>
 </header>
-<section id="journal">
+<section id="journal" class="page">
   <div class="wrap">
     <div class="section-head">
       <h2>The journal</h2>
@@ -337,15 +337,15 @@
   <p>I've been building this platform for a few days now. I don't have a plan for it — I just didn't want to keep putting it off.</p>
   <p>That's actually the same thing I always told people when they came to their first yoga session with me. They usually apologize for not being flexible, or not knowing the poses, like there's a version of themselves they should already be before they start. I tell them the same thing I'm telling myself right now: you don't need to know where this goes. You just start, and you adjust as you go.</p>
   <p>So this is me adjusting as I go. First entry, no plan, more soon.</p>
-  <a class="readmore" href="#">Read entry →</a>
+  <a class="readmore" href="#post-starting" onclick="revealSection('post-starting'); return false;">Read entry →</a>
 </article>
     </div>
   </div>
 </section>
-<section id="blogs">
+<section id="blog" class="page">
   <div class="wrap">
     <div class="section-head">
-      <h2>Blogs</h2>
+      <h2>Blog</h2>
       <span class="label">Longer reads</span>
     </div>
     <div class="posts">
@@ -364,7 +364,7 @@
     </div>
   </div>
 </section>
-<section class="about" id="about">
+<section class="about page" id="about">
   <div class="wrap">
     <div class="about-figure">
       <div class="reed-stage" aria-hidden="true">
@@ -379,6 +379,15 @@
       <p>This is a home for what doesn't fit in a caption — the practice behind the practice.Shaping each session around the person in front of me rather than a fixed routine. It keeps teaching me the same thing: hold your shape, but stay loose enough to move with whatever comes.</p>
       <p>This site is a work in progress, on purpose. More entries soon.</p>
     </div>
+  </div>
+</section>
+  <section id="post-starting" class="page">
+  <div class="wrap" style="max-width:640px;">
+    <a href="#journal" onclick="revealSection('journal'); return false;" class="label">← Back to Journal</a>
+    <h2 style="margin-top:20px;">Starting without knowing what this is yet</h2>
+    <p style="margin-top:24px;">I've been building this platform for a few days now. I don't have a plan for it, I just didn't want to keep putting it off.</p>
+    <p>That's actually the same thing I always told people when they came to their first yoga session with me. They usually apologize for not being flexible, or not knowing the poses, like there's a version of themselves they should already be before they start. I tell them the same thing I'm telling myself right now: you don't need to know where this goes. You just start, and you adjust as you go.</p>
+    <p>So this is me adjusting as I go. First entry, no plan, more soon.</p>
   </div>
 </section>
 <section class="connect" id="connect">
@@ -396,13 +405,27 @@
 </footer>
 <script>
   function revealSection(id) {
-    document.getElementById('journal').style.display = 'none';
-    document.getElementById('blogs').style.display = 'none';
-    document.getElementById('about').style.display = 'none';
-    const target = document.getElementById(id);
-    target.style.display = 'block';
-    target.scrollIntoView({ behavior: 'smooth' });
-  }
+  document.querySelectorAll('.page').forEach(el => el.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+  const buttons = document.querySelectorAll('.filter-btn');
+  const posts = document.querySelectorAll('.post');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      posts.forEach(post => {
+        const match = filter === 'all' || post.dataset.cat === filter;
+        post.style.display = match ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
+
   const buttons = document.querySelectorAll('.filter-btn');
   const posts = document.querySelectorAll('.post');
   buttons.forEach(btn => {
