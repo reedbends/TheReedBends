@@ -48,8 +48,6 @@
     margin: 0 auto;
     padding: 0 32px;
   }
-
-  /* ---------- NAV ---------- */
   nav{
     position: sticky; top:0; z-index: 50;
     background: rgba(243,241,231,0.88);
@@ -75,17 +73,6 @@
     letter-spacing:0.01em;
   }
   .navlinks a:hover{ color: var(--clay); }
-  .navlinks .ig{
-    padding:8px 16px;
-    background: var(--moss);
-    color: var(--paper) !important;
-    border-radius: 3px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.75rem;
-    letter-spacing:0.06em;
-  }
-
-  /* ---------- HERO ---------- */
   header.hero{
     position:relative;
     padding: 96px 0 80px;
@@ -139,8 +126,6 @@
   .btn-primary:hover{ background: var(--clay); transform: translateY(-1px); }
   .btn-ghost{ border-color: var(--moss-deep); color:var(--moss-deep); }
   .btn-ghost:hover{ background: var(--moss-deep); color:var(--paper); }
-
-  /* ---------- REED SIGNATURE ---------- */
   .reed-stage{
     position:relative;
     height: 380px;
@@ -163,23 +148,6 @@
   @media (prefers-reduced-motion: reduce){
     .reed{ animation: none; }
   }
-
-  /* ---------- PHILOSOPHY STRIP ---------- */
-  .strip{
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    background: var(--mist);
-  }
-  .strip .wrap{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    padding: 44px 32px;
-  }
-  .strip-item .label{ margin-bottom:10px; }
-  .strip-item p{ margin:0; font-size:0.98rem; color: var(--moss-deep); }
-
-  /* ---------- SECTION HEADINGS ---------- */
   section{ padding: 80px 0; }
   section#journal, section#blogs, section.about{ display:none; }
   .section-head{
@@ -190,8 +158,6 @@
   }
   .section-head h2{ font-size: clamp(1.7rem, 3vw, 2.3rem); color: var(--moss-deep); }
   .section-head .label{ white-space:nowrap; }
-
-  /* ---------- FILTER ---------- */
   .filters{
     display:flex; gap:10px; margin-bottom: 36px; flex-wrap:wrap;
   }
@@ -212,8 +178,6 @@
     background: var(--moss-deep);
     color: var(--paper);
   }
-
-  /* ---------- POSTS ---------- */
   .posts{
     display:grid;
     grid-template-columns: repeat(3, 1fr);
@@ -244,8 +208,8 @@
     color: var(--paper);
   }
   .tag.practice{ background: var(--moss); }
-.tag.reflections{ background: var(--clay); }
-.tag.blog{ background: var(--marsh); }
+  .tag.reflections{ background: var(--clay); }
+  .tag.blog{ background: var(--marsh); }
   .post h3{ font-size:1.32rem; color: var(--moss-deep); line-height:1.15; }
   .post p{ margin:0; font-size:0.94rem; color:#3c4438; opacity:0.9; }
   .post .readmore{
@@ -256,8 +220,6 @@
     text-decoration:none;
     letter-spacing:0.03em;
   }
-
-  /* ---------- ABOUT ---------- */
   .about{ background: var(--moss-deep); color: var(--mist-warm); }
   .about .wrap{
     display:grid;
@@ -278,16 +240,12 @@
     border: 1px solid rgba(243,241,231,0.14);
   }
   .about-figure .reed-stage{ height:220px; }
-
-  /* ---------- NEWSLETTER / CONNECT ---------- */
   .connect{
     text-align:center;
     padding: 90px 0;
   }
   .connect h2{ font-size: clamp(1.9rem, 4vw, 2.6rem); color: var(--moss-deep); }
   .connect p{ max-width: 46ch; margin: 18px auto 30px; color:#3c4438; }
-
-  /* ---------- FOOTER ---------- */
   footer{
     border-top: 1px solid var(--line);
     padding: 34px 0;
@@ -297,16 +255,11 @@
     flex-wrap:wrap; gap:12px;
   }
   footer .label{ opacity:0.7; }
-
-  /* ---------- RESPONSIVE ---------- */
   @media (max-width: 860px){
     .hero-grid{ grid-template-columns: 1fr; }
     .reed-stage{ height:220px; order:-1; }
-    .strip .wrap{ grid-template-columns:1fr; padding:32px; gap:24px; }
     .posts{ grid-template-columns: 1fr; }
     .about .wrap{ grid-template-columns:1fr; }
-    .navlinks{ gap:16px; }
-    .navlinks a:not(.ig){ display:none; }
   }
 </style>
 </head>
@@ -318,8 +271,8 @@
       The Reed Bends
     </a>
     <div class="navlinks">
-  <a href="#connect">Connect</a>
-</div>
+      <a href="#connect">Connect</a>
+    </div>
   </div>
 </nav>
 <header class="hero" id="top">
@@ -330,8 +283,8 @@
       <p class="sub">The sessions, the small shifts, and everything that doesn't fit in a caption.</p>
       <div class="hero-actions">
         <a href="#about" class="btn btn-ghost" onclick="revealSection('about'); return false;">About this space</a>
-        <a href="#blogs" class="btn btn-ghost" onclick="revealSection('blogs'); return false;">Blogs</a>
-        <a href="#journal" class="btn btn-ghost" onclick="revealSection('journal'); return false;">journal</a>
+        <a href="#blogs" class="btn btn-ghost" onclick="revealSection('blog'); return false;">Blogs</a>
+        <a href="#journal" class="btn btn-ghost" onclick="revealSection('journal'); return false;">Journal</a>
       </div>
     </div>
     <div class="reed-stage" aria-hidden="true">
@@ -361,29 +314,31 @@
     </div>
     <div class="posts" id="posts">
       <article class="post" data-cat="practice">
-        <div class="post-meta"><span class="tag yoga">Practice</span><span class="label">Edit me</span></div>
+        <div class="post-meta"><span class="tag practice">Practice</span><span class="label">Edit me</span></div>
         <h3>What I tell new students in the first five minutes</h3>
         <p>Placeholder text — replace with your own. A short note on how you actually start a session, and why it matters more than the poses.</p>
         <a class="readmore" href="#">Read entry →</a>
       </article>
       <article class="post" data-cat="practice">
-        <div class="post-meta"><span class="tag yoga">Practice</span><span class="label">Edit me</span></div>
+        <div class="post-meta"><span class="tag practice">Practice</span><span class="label">Edit me</span></div>
         <h3>A ten-minute home sequence</h3>
         <p>Placeholder text — replace with your own. A simple, real sequence you actually teach or practice at home.</p>
         <a class="readmore" href="#">Read entry →</a>
       </article>
       <article class="post" data-cat="reflections">
-        <div class="post-meta"><span class="tag movement">Reflections</span><span class="label">Edit me</span></div>
+        <div class="post-meta"><span class="tag reflections">Reflections</span><span class="label">Edit me</span></div>
         <h3>Why "the reed bends"</h3>
         <p>Placeholder text — replace with your own. The story behind the name, and what flexibility actually means to you.</p>
         <a class="readmore" href="#">Read entry →</a>
       </article>
       <article class="post" data-cat="reflections">
-        <div class="post-meta"><span class="tag movement">Reflections</span><span class="label">Edit me</span></div>
-        <h3>On starting something without a plan</h3>
-        <p>Placeholder text — replace with your own. Notes on beginning before you feel ready — this page included.</p>
-        <a class="readmore" href="#">Read entry →</a>
-      </article>
+  <div class="post-meta"><span class="tag reflections">Reflections</span><span class="label">Today</span></div>
+  <h3>Starting without knowing what this is yet</h3>
+  <p>I've been building this platform for a few days now. I don't have a plan for it — I just didn't want to keep putting it off.</p>
+  <p>That's actually the same thing I always told people when they came to their first yoga session with me. They usually apologize for not being flexible, or not knowing the poses, like there's a version of themselves they should already be before they start. I tell them the same thing I'm telling myself right now: you don't need to know where this goes. You just start, and you adjust as you go.</p>
+  <p>So this is me adjusting as I go. First entry, no plan, more soon.</p>
+  <a class="readmore" href="#">Read entry →</a>
+</article>
     </div>
   </div>
 </section>
@@ -393,17 +348,15 @@
       <h2>Blogs</h2>
       <span class="label">Longer reads</span>
     </div>
-
     <div class="posts">
       <article class="post">
-        <div class="post-meta"><span class="tag yoga">Blog</span><span class="label">Edit me</span></div>
+        <div class="post-meta"><span class="tag blog">Blog</span><span class="label">Edit me</span></div>
         <h3>Your first blog title goes here</h3>
         <p>Placeholder text — replace with your own longer-form post. This is where you can go deeper than a quick journal entry.</p>
         <a class="readmore" href="#">Read entry →</a>
       </article>
-
       <article class="post">
-        <div class="post-meta"><span class="tag movement">Blog</span><span class="label">Edit me</span></div>
+        <div class="post-meta"><span class="tag blog">Blog</span><span class="label">Edit me</span></div>
         <h3>Your second blog title goes here</h3>
         <p>Placeholder text — replace with your own. Add as many of these article blocks as you have posts.</p>
         <a class="readmore" href="#">Read entry →</a>
@@ -413,7 +366,6 @@
 </section>
 <section class="about" id="about">
   <div class="wrap">
-  
     <div class="about-figure">
       <div class="reed-stage" aria-hidden="true">
         <svg class="reed" width="80" height="220" viewBox="0 0 80 220">
@@ -424,7 +376,7 @@
     <div>
       <span class="label">About</span>
       <h2>Written between sessions!</h2>
-      <p>This is a home for what doesn't fit in a caption — the practice behind the practice. Shaping each session around the person in front of me rather than a fixed routine. It keeps teaching me the same thing: hold your shape, but stay loose enough to move with whatever comes.</p>
+      <p>This is a home for what doesn't fit in a caption — the practice behind the practice.Shaping each session around the person in front of me rather than a fixed routine. It keeps teaching me the same thing: hold your shape, but stay loose enough to move with whatever comes.</p>
       <p>This site is a work in progress, on purpose. More entries soon.</p>
     </div>
   </div>
@@ -445,7 +397,7 @@
 <script>
   function revealSection(id) {
     document.getElementById('journal').style.display = 'none';
-    document.getElementById('blogs').style.display = 'none'; 
+    document.getElementById('blogs').style.display = 'none';
     document.getElementById('about').style.display = 'none';
     const target = document.getElementById(id);
     target.style.display = 'block';
