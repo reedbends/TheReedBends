@@ -424,20 +424,3 @@
 </script>
 </body>
 </html>
-
-  const buttons = document.querySelectorAll('.filter-btn');
-  const posts = document.querySelectorAll('.post');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      posts.forEach(post => {
-        const match = filter === 'all' || post.dataset.cat === filter;
-        post.style.display = match ? '' : 'none';
-      });
-    });
-  });
-</script>
-</body>
-</html>
